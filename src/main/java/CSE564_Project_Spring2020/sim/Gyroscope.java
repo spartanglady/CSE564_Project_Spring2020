@@ -2,12 +2,18 @@ package CSE564_Project_Spring2020.sim;
 
 import java.util.Optional;
 
+/**
+ * The type Gyroscope.
+ */
 public class Gyroscope implements ClockedComponent {
 	private Optional<Degree> prevRoll, prevPitch, prevYaw;
 	private Optional<World> world;
 	
 	private Optional<DataListener> gyroscopeStateListener;
-	
+
+	/**
+	 * Instantiates a new Gyroscope.
+	 */
 	public Gyroscope() {
 		prevRoll = Optional.empty();
 		prevPitch = Optional.empty();
@@ -16,7 +22,12 @@ public class Gyroscope implements ClockedComponent {
 		
 		gyroscopeStateListener = Optional.empty();
 	}
-	
+
+	/**
+	 * Sets world.
+	 *
+	 * @param _world the world
+	 */
 	public void setWorld(World _world) {
 		assert(_world != null);
 		world = Optional.of(_world);
@@ -27,19 +38,39 @@ public class Gyroscope implements ClockedComponent {
 		assert(world.isPresent());
 		refresh();
 	}
-	
+
+	/**
+	 * Gets roll.
+	 *
+	 * @return the roll
+	 */
 	public Degree getRoll() {
 		return prevRoll.orElse(new Degree());
 	}
-	
+
+	/**
+	 * Gets pitch.
+	 *
+	 * @return the pitch
+	 */
 	public Degree getPitch() {
 		return prevPitch.orElse(new Degree());
 	}
-	
+
+	/**
+	 * Gets yaw.
+	 *
+	 * @return the yaw
+	 */
 	public Degree getYaw() {
 		return prevYaw.orElse(new Degree());
 	}
-	
+
+	/**
+	 * Sets gyroscope state listener.
+	 *
+	 * @param l the l
+	 */
 	public void setGyroscopeStateListener(DataListener l) {
 		assert(l != null);
 		gyroscopeStateListener = Optional.of(l);

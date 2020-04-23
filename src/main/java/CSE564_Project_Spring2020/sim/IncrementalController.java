@@ -1,5 +1,9 @@
 package CSE564_Project_Spring2020.sim;
 
+/**
+ * The type Incremental controller.
+ */
+@SuppressWarnings("DuplicatedCode")
 public class IncrementalController implements Controller {
 	private Gyroscope gyro;
 	private Actuator actuator;
@@ -7,7 +11,10 @@ public class IncrementalController implements Controller {
 	
 	private double p_deg;
 	private double multi;
-	
+
+	/**
+	 * Instantiates a new Incremental controller.
+	 */
 	public IncrementalController() {
 		gyro = null;
 		actuator = null;

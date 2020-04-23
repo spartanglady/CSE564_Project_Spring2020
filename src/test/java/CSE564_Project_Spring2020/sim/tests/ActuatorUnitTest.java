@@ -1,4 +1,4 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyDouble;
@@ -7,6 +7,9 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import CSE564_Project_Spring2020.sim.Actuator;
+import CSE564_Project_Spring2020.sim.RotationAxis;
+import CSE564_Project_Spring2020.sim.World;
 import org.junit.jupiter.api.Test;
 
 class ActuatorUnitTest {

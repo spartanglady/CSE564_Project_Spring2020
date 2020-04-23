@@ -20,10 +20,18 @@ import CSE564_Project_Spring2020.sim.RotationAxis;
 import CSE564_Project_Spring2020.sim.Simulator;
 
 
+/**
+ * The type Main screen.
+ */
 public class MainScreen {
-	private MainScreenModel model;
-	
-    public static void main(String[] args) throws InterruptedException {
+	private final MainScreenModel model;
+
+	/**
+	 * The entry point of application.
+	 *
+	 * @param args the input arguments
+	 */
+	public static void main(String[] args) {
         MainScreen mainScreen = new MainScreen();
         JFrame mainScreenFrame = mainScreen.buildFrame();
         mainScreen.openSubscreens(mainScreenFrame);
@@ -50,16 +58,29 @@ public class MainScreen {
         s.start();
         s.pause();
     }
-    
-    public MainScreen() {
+
+	/**
+	 * Instantiates a new Main screen.
+	 */
+	public MainScreen() {
     	model = new MainScreenModel();
     }
-    
-    public MainScreenModel getModel() {
+
+	/**
+	 * Gets model.
+	 *
+	 * @return the model
+	 */
+	public MainScreenModel getModel() {
     	return model;
     }
 
-    public JFrame buildFrame() {
+	/**
+	 * Build frame j frame.
+	 *
+	 * @return the j frame
+	 */
+	public JFrame buildFrame() {
         JFrame newFrame = new JFrame("Environment Control");
         
         newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,16 +99,26 @@ public class MainScreen {
 
         return newFrame;
     }
-    
-    public void openSubscreens(JFrame mainScreen) {
+
+	/**
+	 * Open subscreens.
+	 *
+	 * @param mainScreen the main screen
+	 */
+	public void openSubscreens(JFrame mainScreen) {
     	DataScreen worldView = new DataScreen(mainScreen, "World View");
     	JDialog worldDataDialog = worldView.buildDialog();
     	MainScreenController.openWorldDataScreenListener.registerWorldDataScreen(worldDataDialog);
     	
     	worldDataDialog.setVisible(true);
     }
-    
-    public JPanel buildSimControlPanel() {
+
+	/**
+	 * Build sim control panel j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel buildSimControlPanel() {
     	JPanel newPanel = new JPanel(new GridBagLayout());
     	
     	newPanel.add(makeControllerPicker(), gridLocation(0, 0));
@@ -99,8 +130,13 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JPanel buildEventControlPanel() {
+
+	/**
+	 * Build event control panel j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel buildEventControlPanel() {
     	JPanel newPanel = new JPanel(new GridBagLayout());
     	
     	newPanel.add(new JLabel("Define new event"), gridLocation(0, 0));
@@ -115,8 +151,15 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public GridBagConstraints gridLocation(int x, int y) {
+
+	/**
+	 * Grid location grid bag constraints.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the grid bag constraints
+	 */
+	public GridBagConstraints gridLocation(int x, int y) {
     	GridBagConstraints newConstraint = new GridBagConstraints();
     	newConstraint.anchor = GridBagConstraints.PAGE_START;
     	newConstraint.gridx = x;
@@ -124,12 +167,17 @@ public class MainScreen {
     	
     	return newConstraint;
     }
-    
-    public JPanel makeControllerPicker() {
+
+	/**
+	 * Make controller picker j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeControllerPicker() {
     	JPanel newPanel = new JPanel();
     	
     	JLabel pickerLabel = new JLabel("Choose controller:");
-    	JComboBox<ControllerType> controllerPicker = new JComboBox<ControllerType>(ControllerType.values());
+    	JComboBox<ControllerType> controllerPicker = new JComboBox<>(ControllerType.values());
     	
     	newPanel.add(pickerLabel);
     	newPanel.add(controllerPicker);
@@ -140,8 +188,13 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JPanel makeDelayForm() {
+
+	/**
+	 * Make delay form j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeDelayForm() {
     	JPanel newPanel = new JPanel(new GridBagLayout());
     	
     	newPanel.add(makeGyroDelayField(), gridLocation(0, 0));
@@ -151,8 +204,13 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JPanel makeGyroDelayField() {
+
+	/**
+	 * Make gyro delay field j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeGyroDelayField() {
     	JPanel newPanel = new JPanel();
     	
     	newPanel.add(new JLabel("Gyro delay:"));
@@ -170,8 +228,14 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JPanel makeActuatorDelayField(RotationAxis axis) {
+
+	/**
+	 * Make actuator delay field j panel.
+	 *
+	 * @param axis the axis
+	 * @return the j panel
+	 */
+	public JPanel makeActuatorDelayField(RotationAxis axis) {
     	JPanel newPanel = new JPanel();
     	
     	String name = String.format("%c%s", axis.toString().charAt(0), axis.toString().substring(1).toLowerCase());
@@ -190,8 +254,13 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JPanel makeSimButtonPanel() {
+
+	/**
+	 * Make sim button panel j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeSimButtonPanel() {
     	JPanel newPanel = new JPanel();
     	
     	newPanel.add(makeStartStopButton());
@@ -199,8 +268,13 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JButton makeStartStopButton() {
+
+	/**
+	 * Make start stop button j button.
+	 *
+	 * @return the j button
+	 */
+	public JButton makeStartStopButton() {
     	JButton startStopButton = new JButton("Start");
     	
     	startStopButton.addActionListener(MainScreenController.startStopButtonListener);
@@ -208,8 +282,13 @@ public class MainScreen {
     	
     	return startStopButton;
     }
-    
-    public JButton makeStepButton() {
+
+	/**
+	 * Make step button j button.
+	 *
+	 * @return the j button
+	 */
+	public JButton makeStepButton() {
     	JButton stepButton = new JButton("Single Step");
     	
     	stepButton.addActionListener(MainScreenController.singleStepButtonListener);
@@ -217,8 +296,13 @@ public class MainScreen {
     	
     	return stepButton;
     }
-    
-    public JPanel makeMultiStepButton() {
+
+	/**
+	 * Make multi step button j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeMultiStepButton() {
     	JPanel newPanel = new JPanel();
     	
     	JButton stepButton = new JButton("Execute Steps");
@@ -235,16 +319,27 @@ public class MainScreen {
     	
     	return newPanel;
     }
-    
-    public JButton makeAddEventButton() {
+
+	/**
+	 * Make add event button j button.
+	 *
+	 * @return the j button
+	 */
+	public JButton makeAddEventButton() {
     	JButton btn = new JButton("Add Event");
     	
     	btn.addActionListener(MainScreenController.addEventButtonListener);
     	
     	return btn;
     }
-    
-    public JPanel makeAccelerationField(RotationAxis axis) {
+
+	/**
+	 * Make acceleration field j panel.
+	 *
+	 * @param axis the axis
+	 * @return the j panel
+	 */
+	public JPanel makeAccelerationField(RotationAxis axis) {
     	JPanel accelerationPanel = new JPanel();
     	
     	String name = String.format("%c%s", axis.toString().charAt(0), axis.toString().substring(1).toLowerCase());
@@ -260,8 +355,13 @@ public class MainScreen {
     	
     	return accelerationPanel;
     }
-    
-    public JPanel makeDurationField() {
+
+	/**
+	 * Make duration field j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeDurationField() {
     	JPanel durationPanel = new JPanel();
     	
     	JLabel durationLabel = new JLabel("Duration: ");
@@ -276,8 +376,13 @@ public class MainScreen {
     	
     	return durationPanel;
     }
-    
-    public JPanel makeTimeField() {
+
+	/**
+	 * Make time field j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel makeTimeField() {
     	JPanel timePanel = new JPanel();
     	
     	JLabel timeLabel = new JLabel("Start Time: ");
@@ -292,16 +397,26 @@ public class MainScreen {
     	
     	return timePanel;
     }
-    
-    public JPanel buildReopenDataScreenPanel() {
+
+	/**
+	 * Build reopen data screen panel j panel.
+	 *
+	 * @return the j panel
+	 */
+	public JPanel buildReopenDataScreenPanel() {
     	JPanel newPanel = new JPanel(new GridBagLayout());
     	
     	newPanel.add(makeReopenWorldDataScreenButton(), gridLocation(0, 0));
     	
     	return newPanel;
     }
-    
-    public JButton makeReopenWorldDataScreenButton() {
+
+	/**
+	 * Make reopen world data screen button j button.
+	 *
+	 * @return the j button
+	 */
+	public JButton makeReopenWorldDataScreenButton() {
     	JButton reopenWorldDataScreenButton = new JButton("Reopen World View");
     	
     	reopenWorldDataScreenButton.addActionListener(MainScreenController.openWorldDataScreenListener);

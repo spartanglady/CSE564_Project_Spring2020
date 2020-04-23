@@ -1,5 +1,13 @@
 package CSE564_Project_Spring2020.sim;
 
+/**
+ * The interface Data listener.
+ */
 public interface DataListener {
-	public void dataChanged(DataChangeEvent e);
+	/**
+	 * Data changed.
+	 *
+	 * @param e the e
+	 */
+	void dataChanged(DataChangeEvent e);
 }

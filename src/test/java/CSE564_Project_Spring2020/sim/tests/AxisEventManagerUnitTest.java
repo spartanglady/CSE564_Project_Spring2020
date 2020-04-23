@@ -1,4 +1,4 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
+import CSE564_Project_Spring2020.sim.AxisEvent;
+import CSE564_Project_Spring2020.sim.AxisEventManager;
 import org.junit.jupiter.api.Test;
 
 class AxisEventManagerUnitTest {

@@ -1,4 +1,4 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -8,6 +8,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.ArgumentMatchers.any;
 
+import CSE564_Project_Spring2020.sim.*;
 import org.junit.jupiter.api.Test;
 
 class SimpleControllerUnitTest {

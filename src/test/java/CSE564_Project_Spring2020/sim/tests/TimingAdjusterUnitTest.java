@@ -1,10 +1,12 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import CSE564_Project_Spring2020.sim.ClockedComponent;
+import CSE564_Project_Spring2020.sim.TimingAdjuster;
 import org.junit.jupiter.api.Test;
 
 class TimingAdjusterUnitTest {

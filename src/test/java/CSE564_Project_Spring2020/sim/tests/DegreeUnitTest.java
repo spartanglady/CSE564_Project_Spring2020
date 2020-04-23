@@ -1,8 +1,9 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static CSE564_Project_Spring2020.sim.DegreeAssertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import CSE564_Project_Spring2020.sim.Degree;
 import org.junit.jupiter.api.Test;
 
 class DegreeUnitTest {

@@ -1,10 +1,14 @@
-package CSE564_Project_Spring2020.sim;
+package CSE564_Project_Spring2020.sim.tests;
 
 import static CSE564_Project_Spring2020.sim.DegreeAssertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import CSE564_Project_Spring2020.sim.Degree;
+import CSE564_Project_Spring2020.sim.DegreeAssertions;
+import CSE564_Project_Spring2020.sim.Gyroscope;
+import CSE564_Project_Spring2020.sim.World;
 import org.junit.jupiter.api.Test;
 
 class GyroscopeUnitTest {
@@ -15,7 +19,7 @@ class GyroscopeUnitTest {
 		
 		assertThrows(AssertionError.class, () -> { cut.tick(); });
 		
-		assertEquals(new Degree(), cut.getRoll());
+		DegreeAssertions.assertEquals(new Degree(), cut.getRoll());
 		assertEquals(new Degree(), cut.getPitch());
 		assertEquals(new Degree(), cut.getYaw());
 		
